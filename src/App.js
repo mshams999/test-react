@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Child from "./child";
+import "./App.css";
+import Items from "./components/items";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    items: [
+      { id: 1, name: "ali", age: 21 },
+      { id: 2, name: "noor", age: 18 },
+      { id: 3, name: "omar", age: 11 }
+    ]
+  };
+
+  change = () => {
+    this.setState({
+      name: "ali",
+      age: 21
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.change}>change state</button>
+
+        <p>{this.state.name}</p>
+        <p>{this.state.age}</p>
+
+        <Items items={this.state.items} />
+      </div>
+    );
+  }
 }
 
 export default App;
