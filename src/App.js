@@ -11,14 +11,12 @@ class App extends React.Component {
       { id: 3, name: "omar", age: 11 }
     ]
   };
-
   change = () => {
     this.setState({
       name: "ali",
       age: 21
     });
   };
-
   render() {
     return (
       <div className="App">
@@ -27,10 +25,9 @@ class App extends React.Component {
         <p>{this.state.name}</p>
         <p>{this.state.age}</p>
 
-        <Items items={this.state.items} />
+        <Items data={this.state.items} />
       </div>
     );
   }
 }
-
 export default App;
